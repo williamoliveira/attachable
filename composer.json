@@ -1,0 +1,12 @@
+{
+  "name": "williamoliveira/attachable",
+  "autoload": {
+    "psr-4": {
+      "Williamoliveira\\Attachable\\": "src/"
+    }
+  },
+  "require": {
+    "illuminate/support": "~5",
+    "intervention/image": "~2.3"
+  }
+}
