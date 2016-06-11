@@ -6,7 +6,6 @@ use Williamoliveira\Attachable\Contracts\InterpolatorContract;
 use Williamoliveira\Attachable\Contracts\Processors\FileProcessorContract;
 use Williamoliveira\Attachable\Contracts\Processors\InterventionImageProcessorContract;
 use Williamoliveira\Attachable\Contracts\StorageContract;
-use Williamoliveira\Attachable\Observers\AttachableModelObserver;
 use Williamoliveira\Attachable\Processors\FileProcessor;
 use Williamoliveira\Attachable\Processors\InterventionImageProcessor;
 use Williamoliveira\Attachable\Services\AttachableHelpers;
@@ -34,8 +33,6 @@ class AttachableServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             $base . '/config/attachable.php', 'attachable'
         );
-
-        $this->registerObserver();
     }
 
     public function register()
@@ -95,15 +92,6 @@ class AttachableServiceProvider extends ServiceProvider
             AttachableHelpersContract::class,
             'attachable.helpers'
         );
-    }
-
-    private function registerObserver()
-    {
-        $models = config('attachable.models');
-
-        foreach($models as $model) {
-            $model::observe($this->app->make(AttachableModelObserver::class));
-        }
     }
 
 }

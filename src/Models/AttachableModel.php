@@ -10,6 +10,7 @@ use Williamoliveira\Attachable\Contracts\AttachableModelContract;
 use Williamoliveira\Attachable\Contracts\InterpolatorContract;
 use Williamoliveira\Attachable\Contracts\StorageContract;
 use Williamoliveira\Attachable\Exceptions\OnlyImagesException;
+use Williamoliveira\Attachable\Observers\AttachableModelObserver;
 use Williamoliveira\Attachable\Services\Interpolator;
 use Williamoliveira\Attachable\Services\RemoteFileManager;
 
@@ -70,7 +71,7 @@ class AttachableModel extends Model implements AttachableModelContract
     protected static function boot()
     {
         parent::boot();
-
+        static::observe(AttachableModelObserver::class);
         static::addGlobalScope(new ModelScope());
     }
     

@@ -68,7 +68,9 @@ class RemoteFileManager
     private function registerDeleteFileEvent($filename)
     {
         app()->terminating(function () use ($filename){
-            unlink($filename);
+            if(file_exists($filename)){
+                unlink($filename);
+            }
         });
     }
 

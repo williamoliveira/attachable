@@ -55,7 +55,7 @@ class LaravelFilesystem implements StorageContract
                 return $this->storage->getDriver()
                     ->getAdapter()
                     ->getClient()
-                    ->getObjectUrl().'/';
+                    ->getObjectUrl();
 
             case 'local_public':
                 $storagepath = str_ireplace(
