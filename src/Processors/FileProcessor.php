@@ -66,7 +66,7 @@ class FileProcessor implements FileProcessorContract
      */
     protected function setDisk(AttachableModel $model)
     {
-        $this->storage->setDisk($model->disk);
+        $this->storage->setDisk($model->getDisk());
     }
 
 }
