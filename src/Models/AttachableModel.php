@@ -194,6 +194,10 @@ class AttachableModel extends Model implements AttachableModelContract
      */
     public function useInterventionImage()
     {
+        if(isset($this->use_intervention_image)){
+            return $this->use_intervention_image;
+        }
+
         $imagesPathHasTemplate = app(InterpolatorContract::class)
             ->pathHas($this->getUnparsedImagesPath(), 'template');
         $fileIsImage = app(AttachableHelpersContract::class)->isImage($this->file);
