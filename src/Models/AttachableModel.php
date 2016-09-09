@@ -88,6 +88,20 @@ class AttachableModel extends Model implements AttachableModelContract
         ];
     }
 
+
+    public function reprocess()
+    {
+        $basePath = config("filesystems.disks.{$this->getDisk()}.root");
+        $path = "{$basePath}/{$this->getPath()}";
+
+        return $this->update([
+            'file' => new UploadedFile(
+                $path,
+                $this->file_name . '.' . $this->file_extension
+            )
+        ]);
+    }
+
     /**
      * @param $file
      * @throws Exception
