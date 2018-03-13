@@ -1,3 +1,7 @@
+# DEPRECATED
+Use https://github.com/spatie/laravel-medialibrary
+
+
 # Attachable
 Attach files to Laravel Eloquent models, works with any Laravel filesystem driver
 
