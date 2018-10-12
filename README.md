@@ -90,7 +90,7 @@ An AttachableModel has the following attributes:
 'file_size'
 ```
 
-Must of the time all you need to set is the file attribute, the others are set automatizaly based on the file
+Most of the time all you need to set is the file attribute, the others are set automatizaly based on the file
 
 You can instantiate an AttachableModel in any Eloquent way, like so:
 ```php
@@ -109,5 +109,5 @@ If you want to store your images to public folder, create a new disk on config/f
   'root'   => public_path('storage'),
 ],
 ```
-than change config/attachable.php 'default_disk' attribute to 'local_public'
+then change config/attachable.php 'default_disk' attribute to 'local_public'
 
